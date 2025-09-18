@@ -1,4 +1,570 @@
 <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Junlin Hou - Academic Homepage</title>
+  <meta name="author" content="Junlin Hou">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/seal_icon.png">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --light-text: #777;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+      color: white;
+      padding: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: 100% 100%;
+    }
+    
+    .profile-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .profile-text {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 30px;
+    }
+    
+    .profile-image {
+      flex: 0 0 280px;
+      text-align: center;
+    }
+    
+    .profile-image img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .profile-image img:hover {
+      transform: scale(1.03);
+    }
+    
+    h1.name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .title {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .contact-info {
+      margin: 20px 0;
+    }
+    
+    .contact-info a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .contact-info a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Content Sections */
+    .section {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .section:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary-color);
+      display: inline-block;
+    }
+    
+    /* News Section */
+    .news-container {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 15px;
+    }
+    
+    .news-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+    }
+    
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    
+    .news-date {
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 5px;
+    }
+    
+    .news-content {
+      margin-left: 0;
+    }
+    
+    .news-content a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .news-content a:hover {
+      color: var(--secondary-color);
+    }
+    
+    /* Research Items */
+    .research-item {
+      display: flex;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .research-item:last-child {
+      border-bottom: none;
+    }
+    
+    .research-image {
+      flex: 0 0 180px;
+      margin-right: 25px;
+    }
+    
+    .research-image img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    
+    .research-image img:hover {
+      transform: scale(1.05);
+    }
+    
+    .research-details {
+      flex: 1;
+    }
+    
+    .research-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    
+    .research-title a {
+      color: var(--dark-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .research-title a:hover {
+      color: var(--secondary-color);
+    }
+    
+    .research-authors {
+      color: var(--light-text);
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    
+    .research-conference {
+      color: var(--secondary-color);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .research-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .research-links a {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--light-color);
+      border-radius: 4px;
+      color: var(--dark-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .research-links a:hover {
+      background: var(--secondary-color);
+      color: white;
+    }
+    
+    /* Lists */
+    .custom-list {
+      list-style-type: none;
+    }
+    
+    .custom-list li {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .custom-list li:before {
+      content: "•";
+      color: var(--secondary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      font-size: 1.2rem;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--primary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--light-text);
+      font-size: 0.9rem;
+      margin-top: 50px;
+      border-top: 1px solid #eee;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column-reverse;
+      }
+      
+      .profile-text {
+        padding-right: 0;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+      
+      .research-item {
+        flex-direction: column;
+      }
+      
+      .research-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        flex: 0 0 auto;
+      }
+      
+      h1.name {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container profile-container">
+      <div class="profile-text">
+        <h1 class="name">Junlin Hou</h1>
+        <div class="title">Post-doc Fellow at HKUST</div>
+        <div class="contact-info">
+          <a href="mailto:csejlhou@ust.hk"><i class="fas fa-envelope"></i> csejlhou@ust.hk</a>
+        </div>
+        <p>My research interest is in explainable artificial intelligence for medical imaging, at an intersection of machine learning, computer vision, and medical imaging.</p>
+        <div class="social-links">
+          <a href="https://scholar.google.com/citations?user=2bHYfQcAAAAJ&hl=en&oi=ao" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://github.com/houjunlin" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" title="CV"><i class="fas fa-file-pdf"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="profile-image">
+        <img src="images/hjl.jpg" alt="Junlin Hou">
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Biography Section -->
+    <section class="section">
+      <h2 class="section-title">Biography</h2>
+      <p>Dr. Junlin Hou is a Post-doctoral Fellow at the Department of Computer Science and Engineering, The Hong Kong University of Science and Technology (HKUST). She obtained her Ph.D. from the School of Computer Science, Fudan University in 2023. She received her B.S. degree in Mathematics and Applied Mathematics from Shanghai University in 2018. She has published 30+ papers in top-tiered conferences and journals, including CVPR, ICCV, ECCV, PR, etc. She served as a reviewer for IEEE TMI, MICCAI, ICCV, etc. She has also served as the guest editor for CMIG special issue on Trustworthy AI for Medical Imaging and the program chair for IJCAI 2024 workshop on TAI4H. She also led the team winning 10+ medical grand challenges. Her current research interest is in explainable artificial intelligence for healthcare.</p>
+    </section>
+
+    <!-- News Section -->
+    <section class="section">
+      <h2 class="section-title">News</h2>
+      <div class="news-container">
+        <h3>2025</h3>
+        <div class="news-item">
+          <div class="news-date">July 07</div>
+          <div class="news-content">Rank 1st at <a href="https://ai-medical-image-analysis.github.io/5th/">PHAROS-AFE-AIMI Competition</a> Track 1 and Track 2 @ ICCV 2025</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">June 18</div>
+          <div class="news-content">One paper was accepted at MICCAI 2025</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">April 15</div>
+          <div class="news-content">One paper was accepted at IEEE TMI: "QMix: Quality-aware Learning with Mixed Noise for Robust Retinal Disease Diagnosis" <a href="https://arxiv.org/pdf/2404.05169">[arXiv]</a></div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">February 11</div>
+          <div class="news-content">One paper was accepted at <a href="https://iclr.cc/">ICLR 2025</a></div>
+        </div>
+
+        <h3>2024</h3>
+        <div class="news-item">
+          <div class="news-date">October 04</div>
+          <div class="news-content">A survey about self-eXplainable AI on arXiv: "<a href="https://arxiv.org/abs/2410.02331">Self-eXplainable AI for Medical Image Analysis: A Survey and New Outlooks</a>"</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">July 22</div>
+          <div class="news-content">Serve as a Guest Editor for the Special Issue <a href="https://www.sciencedirect.com/journal/computerized-medical-imaging-and-graphics/about/call-for-papers#trustworthy-artificial-intelligence-for-medical-imaging">Trustworthy Artificial Intelligence for Medical Imaging</a> for Computerized Medical Imaging and Graphics(CMIG)</div>
+        </div>
+        <!-- More news items... -->
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="section">
+      <h2 class="section-title">Research</h2>
+      
+      <div class="research-item">
+        <div class="research-image">
+          <img src="images/mmac1.png" alt="MMAC Research">
+        </div>
+        <div class="research-details">
+          <div class="research-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-54857-4_3">Towards Label-Efficient Deep Learning for Myopic Maculopathy Classification</a></div>
+          <div class="research-authors">Junlin Hou, Jilan Xu, Fan Xiao, Bo Zhang, Yiqian Xu, Yuejie Zhang, Haidong Zou, Rui Feng</div>
+          <div class="research-conference">MICCAI 2023 Workshop. Winner of MICCAI-MMAC 2023 Challenge</div>
+          <p>A label-efficient deep learning framework for myopic maculopathy classification.</p>
+          <div class="research-links">
+            <a href="https://github.com/FDU-VTS/MMAC"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="research-item">
+        <div class="research-image">
+          <img src="images/lanet.png" alt="LANet Research">
+        </div>
+        <div class="research-details">
+          <div class="research-title"><a href="https://ieeexplore.ieee.org/abstract/document/10095713">Diabetic retinopathy grading with weakly-supervised lesion priors</a></div>
+          <div class="research-authors">Junlin Hou, Fan Xiao, Jilan Xu, Rui Feng, Yuejie Zhang, Haidong Zou, Lina Lu, Wenwen Xue</div>
+          <div class="research-conference">ICASSP 2023</div>
+          <p>A novel weakly-supervised lesion-aware network for DR grading, which enhances the discriminative features with lesion priors by only image-level supervision.</p>
+          <div class="research-links">
+            <a href="https://github.com/FDU-VTS/LANet"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- More research items... -->
+      
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section">
+      <h2 class="section-title">Awards & Honors</h2>
+      <ul class="custom-list">
+        <li>Rank 4th at the 4th COV19D Competition, Track 1 COVID19 Detection Challenge @ CVPR 2024</li>
+        <li>Winner of the 4th COV19D Competition, Track 2 COVID19 Domain Adaptation Challenge @ CVPR 2024</li>
+        <li>Winner of MMAC Challenge, Track 1 Classification of Myopic Maculopathy @ MICCAI 2023</li>
+        <li>Winner of MMAC Challenge, Track 2 Segmentation of Myopic Maculopathy Plus Lesions @ MICCAI 2023</li>
+        <li>Shanghai Outstanding Graduate Award, 2023</li>
+        <!-- More awards... -->
+      </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      <ul class="custom-list">
+        <li>Ph.D. in Computer Science, Fudan University, Shanghai, China. 2018.09-2023.07</li>
+        <li>Bachelor of Science (Mathematics), Shanghai University, Shanghai, China. 2014.09-2018.07</li>
+      </ul>
+    </section>
+
+    <!-- Service Section -->
+    <section class="section">
+      <h2 class="section-title">Service</h2>
+      <p><strong>Workshop/Challenge Organizer:</strong></p>
+      <ul class="custom-list">
+        <li>Guest Editor, Special Issue <a href="https://www.sciencedirect.com/journal/computerized-medical-imaging-and-graphics/about/call-for-papers#trustworthy-artificial-intelligence-for-medical-imaging">TAI4MI</a> for Computerized Medical Imaging and Graphics (CMIG)</li>
+        <li>Co-chair, The Second International Workshop on Trustworthy Artificial Intelligence for Healthcare (<a href="https://sites.google.com/view/tai4h2024/">TAI4H</a>) @ IJCAI 2024</li>
+        <li>Co-organizer, Ultra-Widefield Fundus Imaging for Diabetic Retinopathy Challenge 2024 (<a href="https://codalab.lisn.upsaclay.fr/competitions/18605">UWF4DR</a>) @ MICCAI 2024</li>
+      </ul>
+      
+      <p><strong>Reviewer:</strong></p>
+      <ul class="custom-list">
+        <li>Conference: MICCAI24, ICCV23, ICASSP23, ICIP22</li>
+        <li>Journal: Neurocomputing, AI in Medicine</li>
+      </ul>
+      
+      <p><strong>Teaching Assistant:</strong> Theory of Computation</p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2023 Junlin Hou. Last updated: July 2023.</p>
+      <p>Inspired by <a href="https://jonbarron.info/">Jon Barron</a></p>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE HTML>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>Junlin Hou</title>
@@ -386,3 +952,4 @@
 </body>
 
 </html>
+ -->
